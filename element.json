@@ -30,7 +30,7 @@
             "database": "face"
         },
         "mysql-2":{
-            "host": "11.12.13.147",
+            "host": "localhost",
             "port": "3306",
             "user": "root",
             "password": "asrkpvg7",
