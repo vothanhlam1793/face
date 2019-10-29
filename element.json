@@ -1,0 +1,40 @@
+{
+    "object":{
+        "tag_customer": {
+            "element": "['idtag', 'idcustomer']",
+            "title": "TAG",
+            "database": "mysql-1"
+        },
+        "note_customer": {
+            "element": "['iscustomer', 'content', create_at]",
+            "title": "TAG",
+            "database": "mysql-1"
+        },
+        "tag": {
+            "element": "['name', 'content']",
+            "title": "TAG",
+            "database": "mysql-1"
+        },
+        "customer": {
+            "element": "['name','note']",
+            "title": "CUSTOMER",
+            "database": "mysql-1"
+        }
+    },
+    "database":{
+        "mysql-1":{
+            "host": "192.168.3.129",
+            "port": "3306",
+            "user": "root",
+            "password": "asrkpvg7",
+            "database": "face"
+        },
+        "mysql-2":{
+            "host": "11.12.13.147",
+            "port": "3306",
+            "user": "root",
+            "password": "asrkpvg7",
+            "database": "banhang"
+        }
+    }
+}

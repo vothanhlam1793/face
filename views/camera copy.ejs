@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+    <link rel="stylesheet" href="/css/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+    </style>
+</head>
+
+<body ng-app="camera" ng-controller="counter" ng-keypress="catchKey($event.keyCode)" class="w3-padding w3-border-green">
+    <div class="w3-row">
+        <div  class="w3-col w3-twothird">
+            <!-- <h2>VIEW</h2> -->
+            <div>
+                <video style="width: 90%" playsinline autoplay></video>
+            </div>
+            <div>
+                <canvas style="width: 90%"></canvas>
+            </div>
+            <div id="notify" class=" w3-round w3-padding">
+                <p id="labelNotify"></p>
+            </div>
+        </div>
+        <div class="w3-col w3-third">
+            <h2 class="w3-center">THÔNG TIN</h2>
+            <div>
+                <div id="field-status" class="w3-gray w3-padding w3-round w3-margin">
+                    <p ng-bind="status" class="w3-center">OK</p>
+                </div>
+                <div ng-repeat="i in customers">
+                        <!-- <p>ID: {{i.id}}</p> -->
+                        <h4 class="w3-padding w3-orange w3-margin">Tên: {{ i.name }}</h4>
+                        <p>Đã tới: <b><span style="font-size: 30px">{{i.note.length}}<span></b> lần</p>
+                        <p>LẦN GẦN NHẤT</p>
+                        <table class="w3-table-all">
+                            <tr>
+                                <td>Tính cách</td>
+                                <td>{{i.note[i.note.length - 1].content}}</td>
+                            </tr>
+                            <tr>
+                                <td>Ngày đến</td>
+                                <td>{{i.note[i.note.length - 1].date}}</td>
+                            </tr>  
+                            <tr>
+                                <td>Số tiền</td>
+                                <td>{{i.note[i.note.length - 1].price}}</td>
+                            </tr>                                                      
+                        </table>
+                    </div>
+            </div>
+            <button ng-click="updateImage()" style="display: none">CAPTURE</button>
+            <button ng-click="updateRecord()"  style="display: none">RECORD</button>
+            
+            <!-- <div class="w3-margin"> -->
+                <!-- <table class="w3-table-all w3-border" ng-repeat="i in data_recog"> -->
+                    <!-- <tr ng-repeat="(j, k) in i"> -->
+                        <!-- <td >{{j}}</td> -->
+                        <!-- <td >{{k}}</td> -->
+                    <!-- </tr> -->
+                <!-- </table> -->
+                <button id="btnRecog" ng-click="upDataRecog()"></button>
+                <button id="btnCustomer" ng-click="upDataCustomer()"></button>
+            <!-- </div> -->
+        </div>
+        
+    </div>
+    <div>
+        <div id="page-2" class="w3-modal w3-round">
+            <div class="w3-modal-content w3-round">
+              <header class="w3-container w3-blue"> 
+                <span onclick="document.getElementById('id01').style.display='none'" 
+                class="w3-button w3-display-topright">&times;</span>
+                <h2>Ghi chú khách hàng</h2>
+              </header>
+              <div class="">
+                <table class="w3-table-all">
+                    <tr>
+                        <th>Lựa chọn</th>
+                        <th>Đặc điểm</th>
+                    </tr>
+                    <tr ng-repeat="i in state_note" class="" id="tr-{{i.key}}">
+                        <td>{{i.key}}</td>
+                        <td>{{i.note}}</td>
+                    </tr>
+
+                </table>
+              </div>
+              <footer class="w3-container w3-blue">
+                <p>ENTER để tiếp tục</p>
+                <p>SPACE để thoát</p>
+              </footer>
+            </div>
+          </div>
+          <div id="page-3" class="w3-modal">
+            <div class="w3-modal-content w3-round">
+              <header class="w3-container w3-green"> 
+                <span onclick="document.getElementById('id01').style.display='none'" 
+                class="w3-button w3-display-topright">&times;</span>
+                <h2>Giá</h2>
+              </header>
+              <div class="w3-margin">
+                <input class="w3-input" id="price" type="text" ng-model="price">
+              </div>
+              <footer class="w3-container w3-green">
+                    <p>ENTER để kết thúc!</p>
+                </footer>
+            </div>
+        </div>  
+    </div>
+    <script>
+        
+        </script>
+        
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://localhost:8000/js/camera.js"></script>
+    <script src="http://localhost:8000/js/camera_support.js"></script>
+</body>
+</html>
