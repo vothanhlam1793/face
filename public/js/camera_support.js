@@ -70,7 +70,12 @@ app.controller("counter", function($scope, $http, $interval, $timeout) {
     $interval(function(){
         $scope.timers = "00:00";
         let t = new Date();
-        $scope.results = t.getHours() + ":" + t.getMinutes();
+        // $scope.$apply(function(){
+            $scope.timers = t.getHours() + ":" + t.getMinutes();
+        // });
+        
+        console.log("Hello");
+        console.log(t.getHours() + ":" + t.getMinutes());
     }, 1000);
     $scope.updateStatus = function(obj){
         console.log(obj)
