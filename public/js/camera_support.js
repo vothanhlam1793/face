@@ -67,6 +67,11 @@ app.controller("counter", function($scope, $http, $interval, $timeout) {
     $scope.updateResult = function(obj){
         $scope.results = obj.content;
     }
+    $interval(function(){
+        $scope.timers = "00:00";
+        let t = new Date();
+        $scope.results = t.getHours() + ":" + t.getMinutes();
+    }, 1000);
     $scope.updateStatus = function(obj){
         console.log(obj)
         var d = jQuery("#field-status");
