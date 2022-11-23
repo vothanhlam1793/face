@@ -19,6 +19,6 @@
     "mysql": "^2.17.1",
     "mysql-model": "0.0.3",
     "request": "^2.88.0",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.5.0"
   }
 }
